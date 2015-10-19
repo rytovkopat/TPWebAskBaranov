@@ -1,0 +1,148 @@
+{% extends "auth.html" %}
+{% block main %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-9">
+            <div class="panel panel-info">
+                <div class="panel-body">
+                    <div class="media">
+                        <div class="media-left text-center">
+                            <div class="thumbnail">
+                                <img width="128" height="128" src="http://lorempixel.com/128/128">
+                            </div>
+                            <div class="btn-group">
+                                <button type="button" class="btn btn-xs btn-success">
+                                    <i class="glyphicon glyphicon-plus"></i>
+                                </button>
+                                <!--<button type="button" class="btn btn-xs btn-default">-->
+                                    <strong class="text-danger">-13</strong>
+                                <!--</button>-->
+                                <button type="button" class="btn btn-xs btn-danger">
+                                    <i class="glyphicon glyphicon-minus"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="media-body">
+                            <h3 class="list-group-item-heading media-heading">
+                                <a href="#">How to build a moon park?</a>
+                            </h3>
+
+                            <p class="list-group-item-text">Lorem ipsum dolor sit amet, consectetur adipiscing
+                                elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
+                                ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+                                commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit
+                                esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat
+                                non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                            </p>
+                            <hr>
+                            <dl class="dl-horizontal pull-left">
+                                <dt>Tags:</dt>
+                                <dd>
+                                    <a href="#"><span class="label label-danger">bender</span></a>
+                                    <a href="#"><span class="label label-primary">cookie</span></a>
+                                    <a href="#"><span class="label label-warning">blackjack</span></a>
+                                    <a href="#"><span class="label label-info">movie</span></a>
+                                    <a href="#"><span class="label label-success">ihatetags</span></a>
+                                    <a href="#"><span class="label label-default">luna</span></a>
+                                </dd>
+                            </dl>
+                            <span class="pull-right">
+                                <a class="btn btn-link ask_btn-inline" href="#ask_your-answer-anchor">
+                                    <strong><i class="glyphicon glyphicon-comment"></i> Answer (2)</strong>
+                                </a>
+                            </span>
+                            <span class="clearfix"></span>
+                        </div>
+                    </div>
+                    <div class="list-group">
+                        <div class="list-group-item">
+                            <div class="media">
+                                <div class="media-left text-center">
+                                    <div class="thumbnail">
+                                        <img width="72" height="72" src="http://lorempixel.com/72/72">
+                                    </div>
+                                    <div class="btn-group">
+                                         <button type="button" class="btn btn-xs btn-success">
+                                            <i class="glyphicon glyphicon-plus"></i>
+                                        </button>
+
+                                        <button type="button" class="btn btn-xs btn-default">
+                                            <strong class="text-success">4</strong>
+                                        </button>
+                                       <button type="button" class="btn btn-xs btn-danger">
+                                            <i class="glyphicon glyphicon-minus"></i>
+                                        </button>
+                                    </div>
+                                    <div class="checkbox">
+                                        <label>
+                                            <input type="checkbox"> Correct!
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="media-body">
+                                    <p class="list-group-item-text">Lorem ipsum dolor sit amet, consectetur adipiscing
+                                        elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                                    </p>
+
+                                    <p class="pull-right"><a href="#">@mr.freeman</a> wrote <a href="#">two hours
+                                        ago</a></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="list-group-item">
+                            <div class="media">
+                                <div class="media-left text-center">
+                                    <div class="thumbnail">
+                                        <img width="72" height="72" src="http://lorempixel.com/72/72">
+                                    </div>
+                                    <div class="btn-group">
+                                        <button type="button" class="btn btn-xs btn-success">
+                                            <i class="glyphicon glyphicon-plus"></i>
+                                        </button>
+                                        <button type="button" class="btn btn-xs btn-default">
+                                            <strong class="text-danger">-1</strong>
+                                        </button>
+                                        <button type="button" class="btn btn-xs btn-danger">
+                                            <i class="glyphicon glyphicon-minus"></i>
+                                        </button>
+
+
+                                    </div>
+                                    <div class="checkbox">
+                                        <label>
+                                            <input type="checkbox"> Correct!
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="media-body">
+                                    <p class="list-group-item-text">Lorem ipsum dolor sit amet, consectetur adipiscing
+                                        elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem
+                                        ipsum dolor sit amet, consectetur adipiscing
+                                        elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                                    </p>
+
+                                    <p class="pull-right"><a href="#">@small</a> wrote <a href="#">month ago</a></p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="list-group-item">
+                            <form>
+                                <a name="ask_your-answer-anchor"></a>
+                                <div class="form-group">
+                                    <label for="ask_your-answer-area" class="list-group-item-heading control-label">Your answer:</label>
+                                    <textarea id="ask_your-answer-area" class="form-control" rows="3"></textarea>
+                                </div>
+                                <div class="form-group">
+                                    <a href="#">@tpbmstu</a>
+                                    <button class="btn btn-primary pull-right"><i class="glyphicon glyphicon-comment"></i> Answer</button>
+                                </div>
+                                <div class="clearfix"></div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+{% endblock %}
