@@ -2,32 +2,87 @@
 from __future__ import unicode_literals
 
 from django.db import migrations, models
+from django.conf import settings
+import django.contrib.auth.models
 
 
 class Migration(migrations.Migration):
 
     dependencies = [
+        ('auth', '0006_require_contenttypes_0002'),
     ]
 
     operations = [
         migrations.CreateModel(
-            name='Choice',
+            name='Answer',
             fields=[
                 ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
-                ('choice_text', models.CharField(max_length=2000)),
-                ('votes', models.IntegerField(default=0)),
+                ('created', models.DateTimeField()),
+                ('content', models.TextField()),
+                ('rating', models.IntegerField(default=0)),
+                ('correct', models.BooleanField(default=False)),
+            ],
+        ),
+        migrations.CreateModel(
+            name='CustomUser',
+            fields=[
+                ('user_ptr', models.OneToOneField(parent_link=True, auto_created=True, primary_key=True, serialize=False, to=settings.AUTH_USER_MODEL)),
+                ('avatar', models.ImageField(upload_to=b'')),
+            ],
+            options={
+                'abstract': False,
+                'verbose_name': 'user',
+                'verbose_name_plural': 'users',
+            },
+            bases=('auth.user',),
+            managers=[
+                ('objects', django.contrib.auth.models.UserManager()),
+            ],
+        ),
+        migrations.CreateModel(
+            name='Like',
+            fields=[
+                ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
+                ('value', models.IntegerField()),
+                ('author', models.ForeignKey(to='polls.CustomUser')),
             ],
         ),
         migrations.CreateModel(
             name='Question',
             fields=[
                 ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
-                ('question_text', models.CharField(max_length=2000)),
-                ('pub_date', models.DateTimeField(verbose_name=b'date published')),
+                ('title', models.TextField()),
+                ('content', models.TextField()),
+                ('created', models.DateTimeField()),
+                ('rating', models.IntegerField(default=0)),
+                ('author', models.ForeignKey(to='polls.CustomUser')),
+                ('likes', models.ManyToManyField(to='polls.Like')),
+            ],
+        ),
+        migrations.CreateModel(
+            name='Tag',
+            fields=[
+                ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
+                ('title', models.CharField(unique=True, max_length=100)),
             ],
         ),
         migrations.AddField(
-            model_name='choice',
+            model_name='question',
+            name='tags',
+            field=models.ManyToManyField(to='polls.Tag'),
+        ),
+        migrations.AddField(
+            model_name='answer',
+            name='author',
+            field=models.ForeignKey(to='polls.CustomUser'),
+        ),
+        migrations.AddField(
+            model_name='answer',
+            name='likes',
+            field=models.ManyToManyField(to='polls.Like'),
+        ),
+        migrations.AddField(
+            model_name='answer',
             name='question',
             field=models.ForeignKey(to='polls.Question'),
         ),

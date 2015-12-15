@@ -1,4 +1,4 @@
-{% extends "auth.html" %}
+{% extends "base.html" %}
 {% block main %}
 <div class="container">
     <div class="row">
@@ -17,12 +17,13 @@
                         <!--</ul>-->
                     <!--</div>-->
                     <form class="form-horizontal" method="POST">
+                        {% csrf_token %}
                         <div class="form-group">
                             <label for="ask_input-question-title" class="col-md-2 control-label">Title</label>
 
                             <div class="col-md-10">
-                                <input type="text" class="form-control" id="ask_input-question-title"
-                                       placeholder="Title" maxlength="128">
+                                <input type="text" class="form-control" id="ask_input-question-title "
+                                       placeholder="Title" maxlength="128" name="title" value="{{form.cleaned_data.title}}">
                             </div>
                         </div>
                         <div class="form-group">
@@ -30,14 +31,15 @@
 
                             <div class="col-md-10">
                                 <textarea class="form-control" id="ask_input-question-text"
-                                          rows="8">Some question here...</textarea>
+                                          rows="8" name="content">{{form.cleaned_data.content}}</textarea>
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="ask_input-question-tags" class="col-md-2 control-label">Tags</label>
 
                             <div class="col-md-10">
-                                <input type="text" class="form-control" id="ask_input-question-tags" placeholder="Tags" maxlength="1000">
+                                <input type="text" class="form-control" id="ask_input-question-tags" placeholder="Tags" maxlength="1000"
+                                       data-role="tagsinput" name="tags">
                             </div>
                         </div>
                         <div class="form-group">

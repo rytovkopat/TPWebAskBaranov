@@ -1,17 +1,15 @@
-{% extends "base.html" %}
-{% block not_auth %}
-     <div id="navbar" class="navbar-collapse collapse">
-
+     <div id="navbar" class="navbar-collapse collapse" >
           <form class="navbar-form navbar-right">
             <div class="form-group">
                 <div class="btn-group">
-                    <button type="button" class="btn btn-link" href="/login">
-                        <i class="glyphicon glyphicon-log-in" ></i> Log in
-                    </button>
-                    <button type="button" class="btn btn-link" href="/register">
+                    <a href="{% url 'login' %}" button type="button" class="btn btn-link" >
+                        <i class="glyphicon glyphicon-log-in"></i>
+                        Log in
+                    </a>
+                    <a href="{% url 'register' %}" type="button" class="btn btn-link">
                         <i class="glyphicon glyphicon-pencil"></i> Register
-                    </button>
+                    </a>
                 </div>
             </div>
         </form>
-{% endblock %}
+     </div>

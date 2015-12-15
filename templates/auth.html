@@ -1,12 +1,10 @@
-{% extends "base.html" %}
-{% block auth %}
- <span class="navbar-text navbar-right media ask_navbar-media">
+<span class="navbar-text navbar-right media ask_navbar-media">
             <span class="media-left">
-                <img class="img-thumbnail" width="50" height="50" src="http://lorempixel.com/42/42">
+                <img class="img-thumbnail" width="50" height="50" src="{{ user.avatar.url }}">
             </span>
             <span class="media-body ask_navbar-media-body">
                 <span class="media-heading">
-                    <a href="#">Baranov Ivan</a>
+                    {{user.username}}
                 </span>
             </span>
         </span>
@@ -17,11 +15,11 @@
                     <button type="button" class="btn btn-link">
                         <i class="glyphicon glyphicon-wrench"></i> Settings
                     </button>
+                    <a href="{% url 'logout' %}">
                     <button type="button" class="btn btn-link">
-                        <i class="glyphicon glyphicon-log-out"></i> Log out
+                        <i  class="glyphicon glyphicon-log-out"></i> Log out
                     </button>
+                        </a>
                 </div>
             </div>
         </form>
-
-{% endblock %}
